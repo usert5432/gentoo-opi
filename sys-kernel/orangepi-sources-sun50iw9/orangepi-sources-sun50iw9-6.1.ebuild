@@ -20,6 +20,10 @@ SRC_URI="
 	defconfig? ( https://github.com/orangepi-xunlong/orangepi-build/archive/${COMMIT_OPI}.tar.gz -> orangepi-build-${COMMIT_OPI}.tar.gz )
 "
 
+DEPEND="${DEPEND}
+	dev-embedded/u-boot-tools
+"
+
 KEYWORDS="~aarch64 ~arm"
 IUSE="+defconfig"
 

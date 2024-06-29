@@ -27,6 +27,7 @@ RESTRICT="strip"
 #
 
 RDEPEND="
+	dev-lang/swig
 	app-alternatives/bc
 	dev-build/make
 	dev-python/setuptools

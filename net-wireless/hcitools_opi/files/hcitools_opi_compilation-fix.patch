@@ -1,0 +1,43 @@
+--- a/hciattach.c	2024-02-03 02:23:05.000000000 -0500
++++ b/hciattach.c	2024-12-20 23:05:25.720219937 -0500
+@@ -1195,7 +1195,7 @@
+ //Realtek_add_end
+ 
+ 	{ "xradio",     0x0000, 0x0000, HCI_UART_H4, 115200, 1500000, 0, DISABLE_PM, NULL, xradio_init, xradio_post},
+-	{  "sprd",      0x0000, 0x0000, NULL, 115200, 1500000, FLOW_CTL, DISABLE_PM, NULL, sprd_init, sprd_post},
++	{  "sprd",      0x0000, 0x0000, 0x0000,      115200, 1500000, FLOW_CTL, DISABLE_PM, NULL, sprd_init, sprd_post},
+ 
+ 	{ NULL, 0 }
+ };
+--- a/hciattach_bcm43xx.c	2024-02-03 02:23:05.000000000 -0500
++++ b/hciattach_bcm43xx.c	2024-12-20 23:05:25.730219900 -0500
+@@ -39,6 +39,8 @@
+ #include <bluetooth/hci.h>
+ #include <bluetooth/hci_lib.h>
+ 
++#include <linux/limits.h>
++
+ #include "hciattach.h"
+ 
+ #ifndef FIRMWARE_DIR
+--- a/hciattach_xr.c	2024-02-03 02:23:05.000000000 -0500
++++ b/hciattach_xr.c	2024-12-20 23:05:25.740219864 -0500
+@@ -7,6 +7,7 @@
+ #include <signal.h>
+ #include <time.h>
+ #include <stdint.h>
++#include <sys/select.h>
+ #include <sys/termios.h>
+ #include <sys/ioctl.h>
+ #include <limits.h>
+--- a/textfile.h	2024-02-03 02:23:05.000000000 -0500
++++ b/textfile.h	2024-12-20 23:05:25.813552926 -0500
+@@ -24,6 +24,8 @@
+ #ifndef __TEXTFILE_H
+ #define __TEXTFILE_H
+ 
++#include <sys/types.h>
++
+ int create_file(const char *filename, const mode_t mode);
+ int create_name(char *buf, size_t size, const char *path,
+ 				const char *address, const char *name);

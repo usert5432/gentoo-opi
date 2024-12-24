@@ -17,6 +17,11 @@ RDEPEND=""
 DEPEND="${DEPEND}"
 BDEPEND=""
 
+PATCHES=(
+	"${FILESDIR}/hcitools_opi_compilation-fix.patch"
+	"${FILESDIR}/hcitools_opi_compilation-missing-includes.patch"
+)
+
 src_install() {
 	exeinto /usr/bin
 

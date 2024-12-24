@@ -1,0 +1,11 @@
+--- a/hciattach.h	2024-12-23 22:52:28.235539883 -0500
++++ b/hciattach.h	2024-12-23 22:51:26.922486398 -0500
+@@ -24,6 +24,8 @@
+ #include <termios.h>
+ 
+ #include <bluetooth.h>
++#include <sys/time.h>
++#include <sys/uio.h>
+ 
+ #ifndef N_HCI
+ #define N_HCI	15
